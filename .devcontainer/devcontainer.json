@@ -1,0 +1,46 @@
+{
+	"name": "vscode-python-template",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": ".."
+	},
+	"mounts": [
+		"source=projectname-bashhistory,target=/commandhistory,type=volume"
+	],
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"python.linting.mypyEnabled": true,
+				"python.linting.enabled": true,
+				"python.linting.mypyArgs": [
+					"--ignore-missing-imports",
+					"--follow-imports=silent",
+					"--show-column-numbers",
+					"--check-untyped-defs",
+					"--strict"
+				],
+				"python.linting.flake8Enabled": true,
+				"python.linting.pylintEnabled": false,
+				"python.linting.lintOnSave": true,
+				"python.formatting.provider": "black",
+				"editor.formatOnSave": true,
+				"python.linting.flake8Args": [
+					"--max-line-length=1000",
+					"--ignore=E203,W503,W504"
+				],
+				"python.analysis.autoImportCompletions": true,
+				"editor.codeActionsOnSave": {
+					"source.organizeImports": true
+				}
+			},
+			"extensions": [
+				"ms-python.python",
+				"WakaTime.vscode-wakatime",
+				"njpwerner.autodocstring",
+				"k--kato.intellij-idea-keybindings",
+				"ms-azuretools.vscode-docker",
+				"redhat.vscode-yaml"
+			]
+		}
+	}
+}
